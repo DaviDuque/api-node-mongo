@@ -87,6 +87,14 @@ em http://localhost:3333
 ### Delete vende ###
 /vendas/id -> Delete
 * Id da venda
+
+# Passo a passo #
+
+* 1 - Utilize a rota register para criar um usuário.
+* 2 - O usuário é o vendedor, utilize a rota de autenticação para pegar o token do vendedor.
+* 3 - O token é do tipo Bearer que deve ser adicionado ao header da requisição. Na posse do token acesse as outras rotas.
+* Para obter o Ranking é necessário antes popular o banco. Para isso utilize a rota Criar venda.
+
 # AUTOR #
 
 Davi Duque do Nascimento 
