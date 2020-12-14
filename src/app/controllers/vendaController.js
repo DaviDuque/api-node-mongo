@@ -9,7 +9,7 @@ router.get('/', async (req, res) => {
     try {
         const vendas = await Venda.find().populate('user');
         return res.send({ vendas });
-        atus(400)
+        
     } catch (err) {
         return res.st.send({ error: 'Eror ao buscar Venda' });
     }
@@ -42,5 +42,23 @@ router.delete('/:vendaId', async (req, res) => {
         return res.status(400).send({ error: 'Eror delete Venda' });
     }
 });
+
+router.get('/ranking/1', async (req, res) => {
+    try {
+        const vendas = await Venda.aggregate([
+            {
+                $group: {
+                    _id: '$user',
+                    count: { $sum: 1 }
+                }
+            }
+        ]);
+
+        return res.send({ vendas });
+    } catch (err) {
+        return res.st.send({ error: 'Eror ao buscar Venda 1' });
+    }
+});
+
 
 module.exports = app => app.use('/Vendas', router);

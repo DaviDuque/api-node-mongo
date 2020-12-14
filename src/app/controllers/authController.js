@@ -28,10 +28,10 @@ router.post('/authentication', async (req, res) => {
 
     const user = await User.findOne({ email }).select('password');
     if (!user)
-        return res.status(400).send({ error: '1email ou password incorretos' });
+        return res.status(400).send({ error: 'email ou password incorretos' });
 
     if (!await bcrypt.compare(password, user.password))
-        res.status(200).send({ error: '2email ou password incorretos' });
+        res.status(200).send({ error: 'email ou password incorretos' });
     user.password = 'tipo 1';
     res.send({
         user,
