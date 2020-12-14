@@ -49,7 +49,7 @@ router.get('/ranking/1', async (req, res) => {
             {
                 $group: {
                     _id: '$user',
-                    count: { $sum: 1 }
+                    TotalVendas: { $sum: 1 }
                 }
             }
         ]);

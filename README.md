@@ -12,7 +12,6 @@ Api básica com Nodejs e Mongo BD
 * mongoose v 5.11.7
 * path v 0.12.7
 
-
 # PRÉ-REQUISITOS #
 
 * Ter instalado e configurado Nodejs
@@ -30,8 +29,8 @@ $ npm install
 
 ### Inicialize a Aplicação  ###
 
-$ Verifique se o Mongo esta rodando localmente
-$ node src/index.js
+* Verifique se o Mongo esta rodando localmente
+* node src/index.js
 
 ### Banco de dados ###
 
@@ -51,29 +50,43 @@ em http://localhost:3333
 ### Registro de usuário ###
 
 /auth/register -> POST
-
 * {
-	"name": "Maria Pereira",
-	"email": "teste2@teste.com",
-	"password": "123456"
-  }
+*	"name": "Maria Pereira",
+*	"email": "teste2@teste.com",
+*	"password": "123456"
+* }
 
 ###  Autênticação ###
 
 /auth/authentication -> POST
-
-* 
-{
-	"email": "teste1@teste.com",
-	"password": "123456"
-}
-### Listar ###
+* {
+*	"email": "teste1@teste.com",
+*	"password": "123456"
+* }
+### Listar vendas ###
 
 /vendas -> GET
+* sem parâmetro
+### Ranking(Defaul 1) ###
 
-* params
+/vendas/ranking/1 -> GET
+* Numero do ranking
+### vendas por usuário id ###
+/vendas/id -> GET
+* Id do usuário
 
+###  Criar venda ###
 
+/vendas -> POST
+* {
+* 	"product": "Carrinho",
+* 	"description": "Descrição de carrinho",
+* 	"value": 3.30	
+* }
+
+### Delete vende ###
+/vendas/id -> Delete
+* Id da venda
 # AUTOR #
 
 Davi Duque do Nascimento 
